@@ -32,4 +32,11 @@ RUN /bin/bash -c "source "/app/emsdk/emsdk_env.sh" && \
           ../../src \
     && make"
 
+WORKDIR /app/build/Release/includes
+RUN cp /app/third_party/FileSaver/FileSaver.js . \
+    && cp /app/src/ui/* . \
+    && cp /app/third_party/emscripten-ui/module.js . \
+    && mv ../monstermash.html ../index.html
+WORKDIR /app/build/Release
+
 CMD [ "python3", "-m", "http.server", "8080"]
