@@ -56,3 +56,20 @@ You can build the complete web application using emscripten (https://emscripten.
     ```
     cmake -DCMAKE_BUILD_TYPE=Release ../../src && make
     ```
+
+### Building on Docker
+#### Build monster-mash image
+```
+docker build -t monster-mash .
+```
+
+#### Start
+```
+docker run -d --rm -p 8080:8080 --name monster-mash monster-mash
+```
+* open browser http://localhost:8080
+
+#### Stop
+```
+docker stop monster-mash
+```
